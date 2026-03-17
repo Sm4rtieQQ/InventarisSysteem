@@ -1,5 +1,9 @@
-<script setup></script>
+<template>
+    <nav>
+        <RouterLink to="/Overview">Overzicht</RouterLink>
+    </nav>
 
-<template></template>
-
-<style scoped></style>
+    <main>
+        <RouterView class="view" />
+    </main>
+</template>
