@@ -273,6 +273,16 @@ code {
   }
 }
 
+.routerlink {
+  margin: 5px;
+  padding: 10px;
+  color: hsl(0, 0%, 20%);
+  background-color: hsla(200, 100%, 50%, 0.1);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .ticks {
   position: relative;
   width: 100%;
@@ -293,4 +303,10 @@ code {
     right: 0;
     border-right-color: var(--border);
   }
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 }

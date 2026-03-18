@@ -1,14 +1,21 @@
-import { computed, ref } from "vue";
+import {computed, ref, unref} from 'vue';
 
 let id = 0;
 
 //STATE
-type Item = {
-    id: number, 
-    name: string, 
-    actualAmount: number, 
-    minimumAmount: number
-}
+export type Item = {
+    id: number;
+    name: string;
+    actualAmount: number;
+    minimumAmount: number;
+};
+
+export let newItem = ref<Item>({
+    id: 0,
+    name: '',
+    actualAmount: 0,
+    minimumAmount: 0,
+});
 
 const inventory = ref<Item[]>([
     {
@@ -56,7 +63,13 @@ const inventory = ref<Item[]>([
 ]);
 
 //GETTERS
-export const getFullInventory = computed(() => inventory.value)
+export const getFullInventory = computed(() => inventory.value);
+export const getItemById = (id: number) => computed(() => inventory.value.find(item => item.id == id));
 
 //ACTIONS
-export const addItem = (item: Item) => inventory.value.push(item);
+export const addItem = (item: Item) => {
+    const localItem = unref({...item});
+    inventory.value.push(localItem);
+    console.log(localItem);
+    console.table(inventory.value);
+};

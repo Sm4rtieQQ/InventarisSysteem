@@ -1,9 +1,16 @@
 <template>
     <nav>
-        <RouterLink to="/Overview">Overzicht</RouterLink>
+        <RouterLink to="/Overview" class="routerlink">Overzicht</RouterLink>
+        <RouterLink to="/Create" class="routerlink">Artikel toevoegen</RouterLink>
     </nav>
 
     <main>
-        <RouterView class="view" />
+        <RouterView />
     </main>
 </template>
+
+<style scoped>
+nav {
+    margin: 20px;
+}
+</style>
