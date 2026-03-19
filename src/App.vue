@@ -1,7 +1,8 @@
 <template>
     <nav>
-        <RouterLink to="/Overview" class="routerlink">Overzicht</RouterLink>
-        <RouterLink to="/Create" class="routerlink">Artikel toevoegen</RouterLink>
+        <RouterLink to="/Overview" class="navlink">Overzicht</RouterLink>
+        <RouterLink to="/Create" class="navlink">Artikel toevoegen</RouterLink>
+        <RouterLink to="/Order" class="navlink">Artikelen bestellen</RouterLink>
     </nav>
 
     <main>

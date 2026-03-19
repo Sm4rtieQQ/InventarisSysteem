@@ -1,4 +1,5 @@
-import {computed, ref, unref} from 'vue';
+import {computed, ref} from 'vue';
+import type { Ref } from 'vue';
 
 let id = 0;
 
@@ -10,12 +11,12 @@ export type Item = {
     minimumAmount: number;
 };
 
-export let newItem = ref<Item>({
+export const newItem: Item = {
     id: 0,
     name: '',
     actualAmount: 0,
     minimumAmount: 0,
-});
+};
 
 const inventory = ref<Item[]>([
     {
@@ -63,13 +64,30 @@ const inventory = ref<Item[]>([
 ]);
 
 //GETTERS
+function getIndexById(id: number) {
+    return inventory.value.findIndex(index => index.id == id);
+}
+
 export const getFullInventory = computed(() => inventory.value);
 export const getItemById = (id: number) => computed(() => inventory.value.find(item => item.id == id));
 
+export const getLowStockInventory = computed(() => {
+    return inventory.value.filter(item => item.actualAmount < item.minimumAmount);
+})
+
 //ACTIONS
-export const addItem = (item: Item) => {
-    const localItem = unref({...item});
+export const addItem = (item: Ref<Item>) => {
+    const localItem = {...item.value};
+    localItem.id = id++;
     inventory.value.push(localItem);
-    console.log(localItem);
-    console.table(inventory.value);
 };
+
+export const editItem = (item: Ref<Item>) => {
+    const index = getIndexById(item.value.id);
+    inventory.value[index] = {...item.value};
+}
+
+export const removeItem = (id: number) => {
+    const index = getIndexById(id);
+    inventory.value.splice(index, 1);
+}

@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from 'vue';
-const emit = defineEmits(['submit']);
+import {useRouter} from 'vue-router';
 
 const props = defineProps({
     item: {
@@ -10,9 +10,13 @@ const props = defineProps({
 });
 
 const localItem = ref({...props.item});
+const emit = defineEmits(['submit']);
+const router = useRouter();
+
 function submitItem() {
     if (localItem.value.name == '') return;
     emit('submit', localItem);
+    router.push({name: 'Overview'});
 }
 </script>
 
@@ -48,26 +52,22 @@ function submitItem() {
                         />
                     </td>
                 </tr>
+            </tbody>
+            <tfoot>
                 <tr>
                     <td></td>
                     <td>
                         <button @click="submitItem">Toepassen</button>
-                        <button @click="$router.push('/Overview')">Annuleren</button>
+                        <button @click="$router.push({name: 'Overview'})">Annuleren</button>
                     </td>
                 </tr>
-            </tbody>
+            </tfoot>
         </table>
     </div>
 </template>
 
 <style scoped>
-table {
-    border-collapse: collapse;
-    text-align: left;
-}
-
-th,
-td {
-    padding: 0 5px;
+tfoot tr td {
+    border: none;
 }
 </style>

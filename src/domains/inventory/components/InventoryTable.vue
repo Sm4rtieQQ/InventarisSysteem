@@ -1,15 +1,16 @@
 <script setup>
 import {computed} from 'vue';
-import {getFullInventory} from '../store';
+import {getFullInventory, removeItem} from '../store';
 
 const inventory = computed(() => getFullInventory.value);
 </script>
+
 <template>
     <div class="wrapper">
         <table>
             <thead>
                 <tr>
-                    <th colspan="2">Item</th>
+                    <th colspan="2">Artikel</th>
                     <th>Mininmum</th>
                     <th>Voorraad</th>
                 </tr>
@@ -17,7 +18,10 @@ const inventory = computed(() => getFullInventory.value);
             <tbody>
                 <tr v-for="item in inventory" :key="item.id">
                     <td>{{ item.name }}</td>
-                    <td><RouterLink :to="`/Edit/${item.id}`">✎</RouterLink></td>
+                    <td>
+                        <RouterLink :to="`/Edit/${item.id}`">✎</RouterLink>
+                        <a @click="removeItem(item.id)">🗑</a>
+                    </td>
                     <td>{{ item.minimumAmount }}</td>
                     <td><input :id="item.id" type="number" v-model.number="item.actualAmount" /></td>
                 </tr>
@@ -27,50 +31,8 @@ const inventory = computed(() => getFullInventory.value);
 </template>
 
 <style scoped>
-table {
-    border-collapse: separate;
-    border-spacing: 0;
-}
-
-th,
-td {
-    color: black;
-    text-align: left;
-    padding: 12px;
-    border: 1px solid darkgray;
-}
-
-th {
-    background: hsla(200, 100%, 50%, 0.1);
-    border:
-        none,
-        inherit,
-        5px double darkgray,
-        inherit;
-}
-
-th:first-child {
-    border-top-left-radius: 12px;
-}
-
-th:last-child {
-    border-top-right-radius: 12px;
-}
-
-tr:last-child td:first-child {
-    border-bottom-left-radius: 12px;
-}
-
-tr:last-child td:last-child {
-    border-bottom-right-radius: 12px;
-}
-
-tbody tr:first-child td {
-    border-top: none;
-}
-
-tbody tr:hover {
-    background: rgb(233, 233, 233);
+input {
+    width: 64px;
 }
 
 tbody td:first-child {
@@ -79,14 +41,5 @@ tbody td:first-child {
 
 tbody td:nth-child(2) {
     border-left: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-input {
-    width: 64px;
-    font-size: 12pt;
 }
 </style>
