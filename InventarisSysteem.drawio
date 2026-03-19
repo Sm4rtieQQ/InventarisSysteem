@@ -1,0 +1,16 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.4">
+  <diagram name="Pagina-1" id="jHJDa2tsZR8j9Yx50L5g">
+    <mxGraphModel dx="516" dy="776" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uSY-HkKNFhWKNBA7KD2W-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;align=left;verticalAlign=top;spacing=15;" value="&lt;div&gt;&lt;font&gt;src&lt;/font&gt;&lt;font&gt;\domains\inventory\store.ts&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;Store&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Centrale opslag voor de inventaris&lt;/font&gt;&lt;br&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;inventory-array: een array van objecten voor elk artikel&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;newItem-object: een object in het Item-format voor het aanmaken van nieuwe objecten&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="240" x="280" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="uSY-HkKNFhWKNBA7KD2W-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;verticalAlign=top;align=left;spacing=15;" value="src\domains\inventory\components\InventoryTable.vue&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Overzichtstabel&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="320" x="240" y="720" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
