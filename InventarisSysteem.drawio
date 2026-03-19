@@ -28,8 +28,17 @@
         <mxCell id="eLQj0-DDMxeyVFWfvKQ9-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="Vanuit de tabel kunnen objecten uit de array verwijderd worden" vertex="1">
           <mxGeometry height="30" width="130" x="414" y="680" as="geometry" />
         </mxCell>
-        <mxCell id="eLQj0-DDMxeyVFWfvKQ9-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;verticalAlign=top;align=left;spacing=15;" value="src\domains\inventory\components\InventoryForm.vue&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Formulier&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="90" width="280" x="640" y="415" as="geometry" />
+        <mxCell id="eLQj0-DDMxeyVFWfvKQ9-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;verticalAlign=top;align=left;spacing=15;" value="src\domains\inventory\components\InventoryForm.vue&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Formulier&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Hier kan een artikel worden aangemaakt; naam van het artikel is verplicht, min. aantal en voorraad zijn optioneel (0 als standaard)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="280" x="640" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="eLQj0-DDMxeyVFWfvKQ9-9" edge="1" parent="1" source="eLQj0-DDMxeyVFWfvKQ9-7" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="uSY-HkKNFhWKNBA7KD2W-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="530" y="560" as="sourcePoint" />
+            <mxPoint x="580" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eLQj0-DDMxeyVFWfvKQ9-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="Text" vertex="1">
+          <mxGeometry height="30" width="60" x="540" y="460" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
