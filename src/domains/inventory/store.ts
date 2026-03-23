@@ -1,10 +1,10 @@
 import {computed, ref} from 'vue';
-import type { Ref } from 'vue';
+import type {Ref} from 'vue';
 
 let id = 0;
 
 //STATE
-export type Item = {
+type Item = {
     id: number;
     name: string;
     actualAmount: number;
@@ -73,7 +73,7 @@ export const getItemById = (id: number) => computed(() => inventory.value.find(i
 
 export const getLowStockInventory = computed(() => {
     return inventory.value.filter(item => item.actualAmount < item.minimumAmount);
-})
+});
 
 //ACTIONS
 export const addItem = (item: Ref<Item>) => {
@@ -85,9 +85,9 @@ export const addItem = (item: Ref<Item>) => {
 export const editItem = (item: Ref<Item>) => {
     const index = getIndexById(item.value.id);
     inventory.value[index] = {...item.value};
-}
+};
 
 export const removeItem = (id: number) => {
     const index = getIndexById(id);
     inventory.value.splice(index, 1);
-}
+};

@@ -20,7 +20,7 @@ const inventory = computed(() => getFullInventory.value);
                     <td>{{ item.name }}</td>
                     <td>
                         <RouterLink :to="`/Edit/${item.id}`">✎</RouterLink>
-                        <a @click="removeItem(item.id)">🗑</a>
+                        <a @click="removeItem(item.id)">✘</a>
                     </td>
                     <td>{{ item.minimumAmount }}</td>
                     <td><input :id="item.id" type="number" v-model.number="item.actualAmount" /></td>
