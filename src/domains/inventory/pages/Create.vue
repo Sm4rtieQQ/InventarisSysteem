@@ -1,10 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import {ref} from 'vue';
 import InventoryForm from '../components/InventoryForm.vue';
 import {addItem, newItem} from '../store';
+import type {Item} from '../store';
+import type {Ref} from 'vue';
 
 const localItem = ref({...newItem});
-function handleSubmit(localItem) {
+function handleSubmit(localItem: Ref<Item>) {
     addItem(localItem);
 }
 </script>

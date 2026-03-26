@@ -1,8 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import {computed} from 'vue';
 import {getFullInventory, removeItem} from '../store';
 
-const inventory = computed(() => getFullInventory.value);
+const inventory = computed(() => [...getFullInventory.value]);
 </script>
 
 <template>
@@ -23,7 +23,7 @@ const inventory = computed(() => getFullInventory.value);
                         <a @click="removeItem(item.id)">✘</a>
                     </td>
                     <td>{{ item.minimumAmount }}</td>
-                    <td><input :id="item.id" type="number" v-model.number="item.actualAmount" /></td>
+                    <td><input :name="item.name" type="number" v-model.number="item.actualAmount" /></td>
                 </tr>
             </tbody>
         </table>

@@ -1,14 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import {ref} from 'vue';
 import {useRouter} from 'vue-router';
+import type {Item} from '../store';
 
-const props = defineProps({
-    item: {
-        type: Object,
-        required: true,
-    },
-});
-
+const props = defineProps<{item: Item}>();
 const localItem = ref({...props.item});
 const emit = defineEmits(['submit']);
 const router = useRouter();
@@ -16,6 +11,10 @@ const router = useRouter();
 function submitItem() {
     if (localItem.value.name == '') return;
     emit('submit', localItem);
+    router.push({name: 'Overview'});
+}
+
+function cancelItem() {
     router.push({name: 'Overview'});
 }
 </script>
@@ -58,7 +57,7 @@ function submitItem() {
                     <td></td>
                     <td>
                         <button @click="submitItem">Toepassen</button>
-                        <button @click="$router.push({name: 'Overview'})">Annuleren</button>
+                        <button @click="cancelItem">Annuleren</button>
                     </td>
                 </tr>
             </tfoot>

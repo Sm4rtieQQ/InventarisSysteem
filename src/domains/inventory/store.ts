@@ -4,7 +4,7 @@ import type {Ref} from 'vue';
 let id = 0;
 
 //STATE
-type Item = {
+export type Item = {
     id: number;
     name: string;
     actualAmount: number;
@@ -65,11 +65,11 @@ const inventory = ref<Item[]>([
 
 //GETTERS
 function getIndexById(id: number) {
-    return inventory.value.findIndex(index => index.id == id);
+    return inventory.value.findIndex(index => index.id === id);
 }
 
 export const getFullInventory = computed(() => inventory.value);
-export const getItemById = (id: number) => computed(() => inventory.value.find(item => item.id == id));
+export const getItemById = (id: number) => computed(() => inventory.value.find(item => item.id === id));
 
 export const getLowStockInventory = computed(() => {
     return inventory.value.filter(item => item.actualAmount < item.minimumAmount);

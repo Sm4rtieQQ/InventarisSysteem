@@ -1,9 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import {getLowStockInventory} from '../store';
+import type {Item} from '../store';
 
 const lowStockInventory = [...getLowStockInventory.value];
 
-function getMinOrderAmount(item) {
+function getMinOrderAmount(item: Item) {
     return item.minimumAmount - item.actualAmount;
 }
 </script>
