@@ -1,8 +1,14 @@
 <script setup lang="ts">
-import {computed} from 'vue';
-import {getFullInventory, removeItem} from '../store';
+import {computed, ref} from 'vue';
+import {getFullInventory, removeItem, editItem} from '../store';
+import type {Item} from '../store';
 
-const inventory = computed(() => [...getFullInventory.value]);
+const inventory = computed(() => getFullInventory.value);
+
+function updateAmount(item: Item, value: string) {
+    const updatedItem = {...item, actualAmount: Number(value)};
+    editItem(ref(updatedItem));
+}
 </script>
 
 <template>
@@ -23,7 +29,18 @@ const inventory = computed(() => [...getFullInventory.value]);
                         <a @click="removeItem(item.id)">✘</a>
                     </td>
                     <td>{{ item.minimumAmount }}</td>
-                    <td><input :name="item.name" type="number" v-model.number="item.actualAmount" /></td>
+                    <td>
+                        <input
+                            :name="item.name"
+                            type="number"
+                            :value.number="item.actualAmount"
+                            @change="
+                                event => {
+                                    updateAmount(item, (event.target as HTMLInputElement).value);
+                                }
+                            "
+                        />
+                    </td>
                 </tr>
             </tbody>
         </table>
